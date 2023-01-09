@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Loginsystem2.Models.UserServicee>
+
+<br />
+@using (Html.BeginForm("Index", "UserServicees", FormMethod.Get))
+{
+    @Html.TextBox("Searching")
+    <input type="Submit" class="btn btn-style btn-primary mt-4" value="Search" />
+}
+<br />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AdvertiserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Service)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contacts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.image)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AdvertiserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contacts)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                <img src="@Url.Content(item.image)" width="70" height="70" class="img-rounded" />
+            </td>
+            <td>
+                <a href="@Url.Action("Details", "UserServicees", new { id = item.Id })">
+                    <i class="btn btn-warning btn-sm">Details</i>
+                </a> |
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,62 @@
+﻿@model Loginsystem2.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<body>
+    <!-- main -->
+    <div class="main">
+        <canvas id="myCanvas"></canvas>
+        <div class="main-w3l">
+            <h1 class="logo-w3">Skills and Service Advertisment</h1>
+
+            <div class="w3layouts-main2">
+                <h3>Register Now</h3>
+
+                @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <form action="#" method="post">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        <span class="icons i4"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        <span class="icons i5"><i class="fa fa-key" aria-hidden="true"></i></span>
+                        @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control" } })
+                        <span class="icons i6"><i class="fa fa-key" aria-hidden="true"></i></span>
+                        <input type="submit" value="Register" name="register">
+                    </form>
+                }
+
+            </div>
+            <div class="clear"></div>
+            <!-- //main -->
+            <!--footer-->
+            <div class="footer-w3l">
+                <p>&copy; 2017 Stylish Creative Forms. All rights reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
+            </div>
+            <!--//footer-->
+        </div>
+    </div>
+
+
+    <!--scripts-->
+    <!-- js -->
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <!-- //js -->
+    <!-- particles-JavaScript -->
+    <script src="js/particles.min.js"></script>
+    <script>
+				  window.onload = function() {
+					Particles.init({
+					  selector: '#myCanvas',
+					  color: '#eba7a7',
+					  connectParticles: true,
+					  minDistance: 90
+					});
+				  };
+    </script>
+
+    <!-- //particles-JavaScript -->
+    <!--//scripts-->
